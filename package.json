@@ -1,0 +1,29 @@
+{
+  "name": "ilovereact",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SuperWoods",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superwoods/sikeio-ilovereact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/superwoods/sikeio-ilovereact/issues"
+  },
+  "homepage": "https://github.com/superwoods/sikeio-ilovereact#readme",
+  "dependencies": {
+    "browser-sync": "^2.9.3",
+    "gsap": "^1.18.0",
+    "normalize.css": "^3.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.0.2",
+    "postcss-cli": "^2.1.0",
+    "postcss-import": "^7.0.0"
+  }
+}
