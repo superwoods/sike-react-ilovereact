@@ -485,6 +485,7 @@ a:hover {
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
+                -ms-grid-row-align: center;
             align-items: center;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
@@ -548,6 +549,21 @@ a:hover {
     background-image: -webkit-linear-gradient(rgba(0,0,0,0), rgba(31,30,52,1));
     background-image: linear-gradient(rgba(0,0,0,0), rgba(31,30,52,1));
 }
+.main {
+    position: relative;
+    z-index: 2;
+}
+.mask {
+    width: 100%;
+    background-color: rgba(31,30,52,1);
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 0;
+}
 .android-robot {
     overflow: hidden;
     position: absolute;
@@ -556,21 +572,20 @@ a:hover {
     -webkit-transform: translate(50%, 50%) rotate(-45deg);
             transform: translate(50%, 50%) rotate(-45deg);
 }
-#slider-control {
+.slider-control {
     position: fixed;
     right: 0;
     top: 50%;
     padding: 3px;
     z-index: 9999;
-    -webkit-transform: translate(-20%, -50%);
-            transform: translate(-20%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
-#slider-control a { padding: 3px; }
-#slider-control .dot {
+.slider-control a { padding: 3px; }
+.slider-control .dot {
     width: 16px;
     height: 16px;
     border: 1px solid #fff;
     border-radius: 8px;
 }
-#slider-control .active .dot { background-color: #fff; }
-.react-logo { position: relative; }
+.slider-control .active .dot { background-color: #fff; }

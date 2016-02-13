@@ -79,16 +79,23 @@ a:hover {
     background-position: center;
     background-size: cover;
 }
-
 .overlay {
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(31,30,52,1));
+}
+.main {
     position: relative;
     z-index: 2;
+}
+.mask {
     width: 100%;
-    height:100%;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(31,30,52,1));
-    background-color:red;
-    background-position: center;
-    background-size: cover;
+    background-color: rgba(31,30,52,1);
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
 }
 .android-robot {
     overflow: hidden;

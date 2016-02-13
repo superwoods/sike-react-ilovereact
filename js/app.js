@@ -1,12 +1,13 @@
 ﻿// @St. 2016-01-27-17.14
+//      2016-02-13-08.36
 // init controller
 var controller = new ScrollMagic.Controller();
 
 // 当页面加载完毕时开始动画。
 window.onload = function() {
-  ani.init();
-  updateSliderControl();
-  addSmoothScrolling();
+    ani.init();
+    updateSliderControl();
+    addSmoothScrolling();
 };
 
 // 使用 onscroll 回调函数来更新 slider
@@ -31,13 +32,10 @@ var ani = {
             css: {
               y: "30px",
             },
-
             // 永久重复动画的选项
             repeat: -1,
-
             // 反转、重新运行动画的选项
             yoyo: true,
-
             // 改变 easing 类型
             ease: Sine.easeInOut
             }
@@ -49,22 +47,44 @@ var ani = {
        var t = new TimelineMax({yoyo: true, repeat: -1, ease: Sine.easeInOut});
            t.to(tag, 1, {rotation: '-=10deg'})
             .to(tag, 1, {rotation: '+=20deg'}); // 可以使用 += / -= 在原有角度上做动画
+    },
+      // create a scene
+  // var scene1 = new ScrollMagic.Scene({
+  //         duration: 100,  // the scene should last for a scroll distance of 100px
+  //         offset: 50      // start this scene after scrolling for 50px
+  //     })
+  //     .setPin("#my-sticky-element") // pins the element for the the scene's duration
+  //     .addTo(controller); // assign the scene to the controller
+    scene1: function(){
+
     }
 };
 
-function updateSliderControl() {
-  // 获得所有的 slider 链接
-    var links = document.querySelectorAll("#slider-control a");
 
+// scene.setTween(TweenMax.to("obj"), 1, {x: 100});
+// function windowHeight(){
+//   return window.innerHeight;
+// }
+
+
+// build scene
+var scene = new ScrollMagic.Scene({
+                    triggerElement: "#intro-section",
+                    triggerHook: "onLeave" ,
+                    duration: window.innerHeight
+                })
+                .setTween("#mask", {opacity: 1}) // trigger a TweenMax.to tween
+                .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
+                .addTo(controller);
+
+
+function updateSliderControl() {
+    // 获得所有的 slider 链接
+    var links = document.querySelectorAll("#slider-control a");
     for(var i = 0; i < links.length; i++) {
         var link = links[i];
-
         //console.log(link);
-
         var attr = link.getAttribute('href');
-
-
-
         // 获取被链接指向的部分
         //var section = document.querySelector('#intro-section', '#native', '#touch', '#android');
         var section = document.querySelector(attr);
@@ -96,7 +116,7 @@ function updateSliderControl() {
 
 
 // 练习：网页滚动动画
-function scrollToElement(element, num) {
+function scrollToElement(element) {
   // create a scene
   // var scene1 = new ScrollMagic.Scene({
   //         duration: 100,  // the scene should last for a scroll distance of 100px
@@ -108,15 +128,15 @@ function scrollToElement(element, num) {
   //console.log(num);
   //console.log(element);
 
-  //声明变量topOfElement = element.offsetTop
-  var topOfElement = element.offsetTop;
-  // window 的动画滚动，使用TweenMax plugins
-  TweenMax.to(window, 1, {
+    //声明变量topOfElement = element.offsetTop
+    var topOfElement = element.offsetTop;
+    // window 的动画滚动，使用TweenMax plugins
+    TweenMax.to(window, 1, {
     scrollTo: {
-      y: topOfElement,
+        y: topOfElement,
     },
-    ease: Sine.easeInOut
-  });
+        ease: Sine.easeInOut
+    });
 }
 
 function addSmoothScrolling() {
@@ -127,7 +147,7 @@ function addSmoothScrolling() {
 
         //if (typeof window.addEventListener === 'function'){
         // 闭包
-        (function (_link, num) {
+        (function (_link) {
             //console.log('_link: ' + _link);
             //console.log(link);
             link.addEventListener('click', function(event){
@@ -140,9 +160,9 @@ function addSmoothScrolling() {
                 event.preventDefault();
                 var attr = _link.getAttribute('href');
                 //console.log('href: ' + _link);
-                scrollToElement(document.querySelector(attr), num);
+                scrollToElement(document.querySelector(attr));
                 //location.hash = attr;
             });
-        })(link, i);
+        })(link);
     }
 }

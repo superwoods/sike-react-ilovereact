@@ -10,21 +10,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
 <link rel="stylesheet" href="bundle/app.css">
-<!--<link rel="stylesheet" href="css/app.css">-->
+<!--<link rel="stylesheet" href="bundle/app.css">-->
 </head>
 <body>
 <div class="section native" id="intro-section">
-        <img class="react-logo" src="img/react-logo.svg" alt="" id="react-logo"/>
-        <h1 class="bigTile">Build Native Apps With React</h1>
-        <div class="nav flexRow">
-            <a href="#native"> Native iOS </a>
-            <a href="#touch"> Touch Handling </a>
-            <a href="#async"> Asynchronous </a>
-            <a href="#flex"> Flex &amp; Styling </a>
+    <div class="section overlay">
+        <div class="section main">
+            <img class="react-logo" src="img/react-logo.svg" alt="" id="react-logo"/>
+            <h1 class="bigTile">Build Native Apps With React</h1>
+            <div class="nav flexRow">
+                <a href="#native"> Native iOS </a>
+                <a href="#touch"> Touch Handling </a>
+                <a href="#async"> Asynchronous </a>
+                <a href="#flex"> Flex &amp; Styling </a>
+            </div>
         </div>
-        
-    <div class="overlay">
-
+        <div class="section mask" id="mask">
+        </div>
     </div>
 </div>
 <div class="section flexRow" id="native">
@@ -44,7 +46,8 @@
 <div class="section flexRow" id="touch">
     <div class="iphone-demo">
         <div class="iphoneBox">
-            <img src="img/swype-demo.jpg" /></div>
+            <img src="img/swype-demo.jpg" />
+        </div>
         <img src="img/iphone-frame.svg" />
     </div>
     <div class="feature-description">
@@ -72,11 +75,24 @@
     <div class="dot"></div>
     </a>
 </div>
-<script src="node_modules/gsap/src/uncompressed/TweenMax.js"></script>
+
+<!-- Import Javascript Library -->
+	<script src="node_modules/gsap/src/uncompressed/TweenMax.js"></script>
+	<script src="node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin.js"></script>
+	<script src="node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script src="node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script src="node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+
+
+
+
+<!-- <script src="node_modules/gsap/src/uncompressed/TweenMax.js"></script>
 <script src="node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin.js"></script>
-<!-- <script src="js/ScrollMagic.min.js"></script> -->
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script> -->
+
+<!-- <script src="js/ScrollMagic.min.js"></script> -->
 
 <script src="js/app.js"></script>
 </body>
